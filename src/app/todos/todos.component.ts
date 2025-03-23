@@ -20,7 +20,7 @@ export interface TodosItem {
     trigger('fadeIn', [
       state('void', style({ opacity: 0 })),
 
-      transition('void=>*, *=>void', [
+      transition('void<=>*', [
         animate('.3s ease-in')]),
     ]),
   ],
