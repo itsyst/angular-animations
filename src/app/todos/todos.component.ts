@@ -19,12 +19,9 @@ export interface TodosItem {
     // Animation for the fade-in effect
     trigger('fadeIn', [
       state('void', style({ opacity: 0 })),
-      
-      transition('void=>*', [
-        animate('.3s ease-in')]),
 
-      transition('*=>void', [
-        animate('.3s ease-out')]),
+      transition('void=>*, *=>void', [
+        animate('.3s ease-in')]),
     ]),
   ],
 })
