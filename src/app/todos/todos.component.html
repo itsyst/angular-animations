@@ -8,14 +8,20 @@
     class="form-control mb-3"
     placeholder="Add todo"
   />
-  <ul class="list-group">
-    <button
-      type="button"
-      *ngFor="let item of items"
-      (click)="removeItem(item)"
-      class="list-group-item d-flex justify-content-between align-items-center"
-    >
-      {{ item.title }}
-    </button>
-  </ul>
+  <ng-container *ngIf="items; else noItems">
+    <ul class="list-group">
+      <button
+        @fadeIn
+        type="button"
+        *ngFor="let item of items"
+        (click)="removeItem(item)"
+        class="list-group-item d-flex justify-content-between align-items-center"
+      >
+        {{ item.title }}
+      </button>
+    </ul>
+  </ng-container>
+  <ng-template #noItems>
+    <p>Inga todo-uppgifter tillgängliga</p>
+  </ng-template>
 </section>
