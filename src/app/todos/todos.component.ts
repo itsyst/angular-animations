@@ -21,6 +21,9 @@ export interface TodosItem {
       transition('void=>*', [
         style({ opacity: 0 }),
         animate('.3s ease-in')]),
+
+      transition('*=>void', [
+        animate('.3s ease-out', style({ opacity: 0 }))]),
     ]),
   ],
 })
