@@ -1,0 +1,21 @@
+<!-- todos.component.html -->
+
+<section class="container">
+  <h1 class="text-uppercase">Uppgifter</h1>
+  <input
+    #todoInput
+    (keyup.enter)="addItem(todoInput)"
+    class="form-control mb-3"
+    placeholder="Add todo"
+  />
+  <ul class="list-group">
+    <button
+      type="button"
+      *ngFor="let item of items"
+      (click)="removeItem(item)"
+      class="list-group-item d-flex justify-content-between align-items-center"
+    >
+      {{ item.title }}
+    </button>
+  </ul>
+</section>

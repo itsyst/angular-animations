@@ -1,18 +1,18 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TodoService } from './services/todo.service';
+import { TodosComponent } from './todos/todos.component'; // Import the TodosComponent
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AppComponent,
+    TodosComponent
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [TodoService],
 })
-export class AppModule { }
+export class AppModule {}
