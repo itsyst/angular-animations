@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TodoService } from '../services/todo.service';
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import { fade } from '../animations';
 
 export interface TodosItem {
   id: number;
@@ -17,12 +17,7 @@ export interface TodosItem {
   styleUrl: './todos.component.css',
   animations: [
     // Animation for the fade-in effect
-    trigger('fadeIn', [
-      state('void', style({ opacity: 0 })),
-
-      transition(':enter, :leave', [
-        animate('.3s ease-in')]),
-    ]),
+    fade
   ],
 })
 export class TodosComponent {
