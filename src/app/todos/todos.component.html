@@ -11,7 +11,7 @@
   <ng-container *ngIf="items; else noItems">
     <ul class="list-group">
       <button
-        @fadeAndSlide
+        @todoAnimation
         type="button"
         *ngFor="let item of items"
         (click)="removeItem(item)"
