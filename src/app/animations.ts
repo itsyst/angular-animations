@@ -24,11 +24,16 @@ export let fadeAndSlide = trigger('fadeAndSlide', [
       // style({ transform: 'translateX(-100%)' })
       keyframes([
         style({ offset: 0.2, opacity: 1, transform: 'translateX(20px)' }),
-        style({ offset: 1, opacity: 0, transform: 'translateX(-2000px)' })
+        style({ offset: 1, opacity: 0, transform: 'translateX(-2000px)' }),
       ])
     )
   ),
 ]);
+
+export let fadeInAnimation = animation(
+  [style({ opacity: 0 }), animate('{{duration}} {{ easing}}')],
+  { params: { duration: '2s', easing: 'ease-out' } }
+);
 
 export let bounceOutLeftAnimation = animation(
   animate(
@@ -36,19 +41,20 @@ export let bounceOutLeftAnimation = animation(
     // style({ transform: 'translateX(-100%)' })
     keyframes([
       style({ offset: 0.2, opacity: 1, transform: 'translateX(20px)' }),
-      style({ offset: 1, opacity: 0, transform: 'translateX(-100%)' })
+      style({ offset: 1, opacity: 0, transform: 'translateX(-100%)' }),
     ])
   )
 );
 
 export let todoAnimation = trigger('todoAnimation', [
-  transition(':enter', [
-    style({ opacity: 0 }),
-    animate(500)
-  ]),
+  transition(':enter',
+    [
+      useAnimation(fadeInAnimation, { params: { duration: '500ms', easing: 'ease-out' } }),
+    ]
+  ),
   transition(':leave', [
     style({ backgroundColor: 'red' }),
     animate(1000),
-    useAnimation(bounceOutLeftAnimation)
+    useAnimation(bounceOutLeftAnimation),
   ]),
 ]);
